@@ -10,14 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLyKho
 {
-    public partial class ucKhachHang : UserControl
+    public partial class ucPhieuNhap : UserControl
     {
-        public ucKhachHang()
+        public ucPhieuNhap()
         {
             InitializeComponent();
         }
-
-       
-        
     }
 }

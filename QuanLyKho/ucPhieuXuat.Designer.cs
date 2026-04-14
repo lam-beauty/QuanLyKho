@@ -29,24 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucPhieuXuat));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtpNgayXuat = new System.Windows.Forms.DateTimePicker();
             this.cbNguoiLap = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btnLuu = new System.Windows.Forms.Button();
             this.cbTrangThai = new System.Windows.Forms.ComboBox();
             this.cbDonVi = new System.Windows.Forms.ComboBox();
             this.cbLoaiSP = new System.Windows.Forms.ComboBox();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTaoMoi = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.lblGhiChu = new System.Windows.Forms.Label();
             this.txtGiaNhap = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -63,14 +61,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnTaoMoi = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -81,13 +85,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.66938F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 619F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 1);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtTimKiem, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.button5, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox3, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -98,23 +102,12 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1418, 1042);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(84, 120);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(572, 843);
-            this.dataGridView1.TabIndex = 17;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.groupBox1.Location = new System.Drawing.Point(761, 120);
+            this.groupBox1.Location = new System.Drawing.Point(760, 120);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(613, 843);
             this.groupBox1.TabIndex = 18;
@@ -173,30 +166,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chi tiết phiếu xuất";
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(27, 41);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(533, 182);
-            this.dataGridView2.TabIndex = 31;
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnLuu.BackColor = System.Drawing.Color.White;
-            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnLuu.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(42, 14);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(50, 50);
-            this.btnLuu.TabIndex = 52;
-            this.btnLuu.UseVisualStyleBackColor = false;
-            // 
             // cbTrangThai
             // 
             this.cbTrangThai.FormattingEnabled = true;
@@ -247,48 +216,6 @@
             this.label1.Size = new System.Drawing.Size(79, 25);
             this.label1.TabIndex = 46;
             this.label1.Text = "Ghi Chú";
-            // 
-            // btnTaoMoi
-            // 
-            this.btnTaoMoi.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTaoMoi.BackColor = System.Drawing.Color.White;
-            this.btnTaoMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTaoMoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnTaoMoi.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnTaoMoi.Image = ((System.Drawing.Image)(resources.GetObject("btnTaoMoi.Image")));
-            this.btnTaoMoi.Location = new System.Drawing.Point(121, 14);
-            this.btnTaoMoi.Name = "btnTaoMoi";
-            this.btnTaoMoi.Size = new System.Drawing.Size(50, 50);
-            this.btnTaoMoi.TabIndex = 45;
-            this.btnTaoMoi.UseVisualStyleBackColor = false;
-            // 
-            // btnSua
-            // 
-            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSua.BackColor = System.Drawing.Color.White;
-            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnSua.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-            this.btnSua.Location = new System.Drawing.Point(200, 14);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(50, 50);
-            this.btnSua.TabIndex = 44;
-            this.btnSua.UseVisualStyleBackColor = false;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnXoa.BackColor = System.Drawing.Color.White;
-            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(279, 14);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(50, 50);
-            this.btnXoa.TabIndex = 43;
-            this.btnXoa.UseVisualStyleBackColor = false;
             // 
             // lblGhiChu
             // 
@@ -369,7 +296,7 @@
             this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtTimKiem.Location = new System.Drawing.Point(84, 41);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(572, 34);
+            this.txtTimKiem.Size = new System.Drawing.Size(571, 34);
             this.txtTimKiem.TabIndex = 19;
             // 
             // panel1
@@ -379,7 +306,7 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(326, 969);
+            this.panel1.Location = new System.Drawing.Point(325, 969);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(330, 70);
             this.panel1.TabIndex = 21;
@@ -448,7 +375,7 @@
             this.button5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.button5.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(662, 33);
+            this.button5.Location = new System.Drawing.Point(661, 33);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(93, 50);
             this.button5.TabIndex = 27;
@@ -461,11 +388,112 @@
             this.groupBox3.Controls.Add(this.btnTaoMoi);
             this.groupBox3.Controls.Add(this.btnLuu);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox3.Location = new System.Drawing.Point(1008, 969);
+            this.groupBox3.Location = new System.Drawing.Point(1007, 969);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(366, 70);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnXoa.BackColor = System.Drawing.Color.White;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.Location = new System.Drawing.Point(279, 14);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(50, 50);
+            this.btnXoa.TabIndex = 43;
+            this.btnXoa.UseVisualStyleBackColor = false;
+            // 
+            // btnSua
+            // 
+            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSua.BackColor = System.Drawing.Color.White;
+            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSua.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
+            this.btnSua.Location = new System.Drawing.Point(200, 14);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(50, 50);
+            this.btnSua.TabIndex = 44;
+            this.btnSua.UseVisualStyleBackColor = false;
+            // 
+            // btnTaoMoi
+            // 
+            this.btnTaoMoi.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTaoMoi.BackColor = System.Drawing.Color.White;
+            this.btnTaoMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTaoMoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTaoMoi.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnTaoMoi.Image = ((System.Drawing.Image)(resources.GetObject("btnTaoMoi.Image")));
+            this.btnTaoMoi.Location = new System.Drawing.Point(121, 14);
+            this.btnTaoMoi.Name = "btnTaoMoi";
+            this.btnTaoMoi.Size = new System.Drawing.Size(50, 50);
+            this.btnTaoMoi.TabIndex = 45;
+            this.btnTaoMoi.UseVisualStyleBackColor = false;
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnLuu.BackColor = System.Drawing.Color.White;
+            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnLuu.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
+            this.btnLuu.Location = new System.Drawing.Point(42, 14);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(50, 50);
+            this.btnLuu.TabIndex = 52;
+            this.btnLuu.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.ColumnHeadersHeight = 40;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(84, 120);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(571, 843);
+            this.dataGridView1.TabIndex = 29;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView2.ColumnHeadersHeight = 40;
+            this.dataGridView2.Location = new System.Drawing.Point(24, 30);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(536, 191);
+            this.dataGridView2.TabIndex = 29;
             // 
             // ucPhieuXuat
             // 
@@ -476,14 +504,14 @@
             this.Size = new System.Drawing.Size(1418, 1042);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -491,7 +519,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Panel panel1;
@@ -504,7 +531,6 @@
         private System.Windows.Forms.DateTimePicker dtpNgayXuat;
         private System.Windows.Forms.ComboBox cbNguoiLap;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.ComboBox cbTrangThai;
         private System.Windows.Forms.ComboBox cbDonVi;
@@ -524,5 +550,7 @@
         private System.Windows.Forms.Label lblMaKH;
         private System.Windows.Forms.TextBox txtMaSP;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangNhap));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDangNhap = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
+            this.btnDangNhap = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,6 +61,50 @@
             this.panel1.Size = new System.Drawing.Size(513, 585);
             this.panel1.TabIndex = 0;
             // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.txtMatKhau);
+            this.panel3.Location = new System.Drawing.Point(113, 264);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(320, 43);
+            this.panel3.TabIndex = 8;
+            // 
+            // txtMatKhau
+            // 
+            this.txtMatKhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMatKhau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtMatKhau.ForeColor = System.Drawing.Color.Silver;
+            this.txtMatKhau.Location = new System.Drawing.Point(6, 3);
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.Size = new System.Drawing.Size(311, 27);
+            this.txtMatKhau.TabIndex = 2;
+            this.txtMatKhau.Text = "Mật khẩu";
+            this.txtMatKhau.Enter += new System.EventHandler(this.txtMatKhau_Enter);
+            this.txtMatKhau.Leave += new System.EventHandler(this.txtMatKhau_Leave);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtTenDangNhap);
+            this.panel2.Location = new System.Drawing.Point(116, 163);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(320, 43);
+            this.panel2.TabIndex = 7;
+            // 
+            // txtTenDangNhap
+            // 
+            this.txtTenDangNhap.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTenDangNhap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtTenDangNhap.ForeColor = System.Drawing.Color.Silver;
+            this.txtTenDangNhap.Location = new System.Drawing.Point(3, 5);
+            this.txtTenDangNhap.Name = "txtTenDangNhap";
+            this.txtTenDangNhap.Size = new System.Drawing.Size(314, 27);
+            this.txtTenDangNhap.TabIndex = 5;
+            this.txtTenDangNhap.Text = "Tên đăng nhập";
+            this.txtTenDangNhap.Enter += new System.EventHandler(this.txtTenDangNhap_Enter);
+            this.txtTenDangNhap.Leave += new System.EventHandler(this.txtTenDangNhap_Leave);
+            // 
             // btnDangNhap
             // 
             this.btnDangNhap.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -73,17 +117,7 @@
             this.btnDangNhap.TabIndex = 6;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
-            // 
-            // txtTenDangNhap
-            // 
-            this.txtTenDangNhap.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenDangNhap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTenDangNhap.ForeColor = System.Drawing.Color.Silver;
-            this.txtTenDangNhap.Location = new System.Drawing.Point(3, 5);
-            this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(314, 27);
-            this.txtTenDangNhap.TabIndex = 5;
-            this.txtTenDangNhap.Text = "Tên đăng nhập";
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // button2
             // 
@@ -107,17 +141,6 @@
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBox1.ForeColor = System.Drawing.Color.Silver;
-            this.textBox1.Location = new System.Drawing.Point(6, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(311, 27);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Mật khẩu";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -140,22 +163,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "HỆ THỐNG QUẢN LÝ KHO";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.txtTenDangNhap);
-            this.panel2.Location = new System.Drawing.Point(116, 163);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(320, 43);
-            this.panel2.TabIndex = 7;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Location = new System.Drawing.Point(113, 264);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(320, 43);
-            this.panel3.TabIndex = 8;
-            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -168,10 +175,10 @@
             this.Text = "Hệ Thống Quản Lý Kho";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,7 +191,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.Panel panel2;

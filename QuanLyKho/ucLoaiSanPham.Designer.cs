@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucLoaiSanPham));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -42,13 +44,14 @@
             this.lblTenLoai = new System.Windows.Forms.Label();
             this.lblMaLoai = new System.Windows.Forms.Label();
             this.txtMaLoai = new System.Windows.Forms.TextBox();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnDau = new System.Windows.Forms.Button();
+            this.btnSau = new System.Windows.Forms.Button();
+            this.btnCuoi = new System.Windows.Forms.Button();
+            this.btnTruoc = new System.Windows.Forms.Button();
+            this.MaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -63,12 +66,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.97764F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 586F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 1);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtTimKiem, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button5, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -81,14 +82,30 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.ColumnHeadersHeight = 40;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaLoai,
+            this.TenLoai,
+            this.MoTa});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(72, 91);
+            this.dataGridView1.Location = new System.Drawing.Point(71, 91);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(551, 627);
-            this.dataGridView1.TabIndex = 17;
+            this.dataGridView1.TabIndex = 23;
             // 
             // groupBox1
             // 
@@ -104,7 +121,7 @@
             this.groupBox1.Controls.Add(this.txtMaLoai);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.groupBox1.Location = new System.Drawing.Point(728, 91);
+            this.groupBox1.Location = new System.Drawing.Point(727, 91);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(580, 627);
             this.groupBox1.TabIndex = 18;
@@ -124,6 +141,7 @@
             this.btnLuu.Size = new System.Drawing.Size(50, 50);
             this.btnLuu.TabIndex = 31;
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnTaoMoi
             // 
@@ -138,6 +156,7 @@
             this.btnTaoMoi.Size = new System.Drawing.Size(50, 50);
             this.btnTaoMoi.TabIndex = 23;
             this.btnTaoMoi.UseVisualStyleBackColor = false;
+            this.btnTaoMoi.Click += new System.EventHandler(this.btnTaoMoi_Click);
             // 
             // btnSua
             // 
@@ -152,6 +171,7 @@
             this.btnSua.Size = new System.Drawing.Size(50, 50);
             this.btnSua.TabIndex = 22;
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -166,6 +186,7 @@
             this.btnXoa.Size = new System.Drawing.Size(50, 50);
             this.btnXoa.TabIndex = 21;
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // txtMoTa
             // 
@@ -221,97 +242,98 @@
             this.txtMaLoai.Size = new System.Drawing.Size(314, 34);
             this.txtMaLoai.TabIndex = 2;
             // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTimKiem.Location = new System.Drawing.Point(72, 27);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(551, 34);
-            this.txtTimKiem.TabIndex = 19;
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(293, 724);
+            this.panel1.Controls.Add(this.btnDau);
+            this.panel1.Controls.Add(this.btnSau);
+            this.panel1.Controls.Add(this.btnCuoi);
+            this.panel1.Controls.Add(this.btnTruoc);
+            this.panel1.Location = new System.Drawing.Point(292, 724);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(330, 100);
             this.panel1.TabIndex = 21;
             // 
-            // button4
+            // btnDau
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button4.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(32, 27);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(50, 50);
-            this.button4.TabIndex = 26;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnDau.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDau.BackColor = System.Drawing.Color.White;
+            this.btnDau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDau.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnDau.Image = ((System.Drawing.Image)(resources.GetObject("btnDau.Image")));
+            this.btnDau.Location = new System.Drawing.Point(32, 27);
+            this.btnDau.Name = "btnDau";
+            this.btnDau.Size = new System.Drawing.Size(50, 50);
+            this.btnDau.TabIndex = 26;
+            this.btnDau.UseVisualStyleBackColor = false;
+            this.btnDau.Click += new System.EventHandler(this.btnDau_Click);
             // 
-            // button3
+            // btnSau
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(174, 27);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(50, 50);
-            this.button3.TabIndex = 25;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSau.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSau.BackColor = System.Drawing.Color.White;
+            this.btnSau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSau.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnSau.Image = ((System.Drawing.Image)(resources.GetObject("btnSau.Image")));
+            this.btnSau.Location = new System.Drawing.Point(174, 27);
+            this.btnSau.Name = "btnSau";
+            this.btnSau.Size = new System.Drawing.Size(50, 50);
+            this.btnSau.TabIndex = 25;
+            this.btnSau.UseVisualStyleBackColor = false;
+            this.btnSau.Click += new System.EventHandler(this.btnSau_Click);
             // 
-            // button2
+            // btnCuoi
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(245, 27);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 50);
-            this.button2.TabIndex = 24;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCuoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCuoi.BackColor = System.Drawing.Color.White;
+            this.btnCuoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCuoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnCuoi.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnCuoi.Image = ((System.Drawing.Image)(resources.GetObject("btnCuoi.Image")));
+            this.btnCuoi.Location = new System.Drawing.Point(245, 27);
+            this.btnCuoi.Name = "btnCuoi";
+            this.btnCuoi.Size = new System.Drawing.Size(50, 50);
+            this.btnCuoi.TabIndex = 24;
+            this.btnCuoi.UseVisualStyleBackColor = false;
+            this.btnCuoi.Click += new System.EventHandler(this.btnCuoi_Click);
             // 
-            // button1
+            // btnTruoc
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(103, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 50);
-            this.button1.TabIndex = 23;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnTruoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTruoc.BackColor = System.Drawing.Color.White;
+            this.btnTruoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTruoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTruoc.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnTruoc.Image = ((System.Drawing.Image)(resources.GetObject("btnTruoc.Image")));
+            this.btnTruoc.Location = new System.Drawing.Point(103, 27);
+            this.btnTruoc.Name = "btnTruoc";
+            this.btnTruoc.Size = new System.Drawing.Size(50, 50);
+            this.btnTruoc.TabIndex = 23;
+            this.btnTruoc.UseVisualStyleBackColor = false;
+            this.btnTruoc.Click += new System.EventHandler(this.btnTruoc_Click);
             // 
-            // button5
+            // MaLoai
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button5.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(629, 19);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(93, 50);
-            this.button5.TabIndex = 27;
-            this.button5.UseVisualStyleBackColor = false;
+            this.MaLoai.DataPropertyName = "MaLoai";
+            this.MaLoai.HeaderText = "Mã Loại Sản Phẩm";
+            this.MaLoai.MinimumWidth = 6;
+            this.MaLoai.Name = "MaLoai";
+            // 
+            // TenLoai
+            // 
+            this.TenLoai.DataPropertyName = "TenLoai";
+            this.TenLoai.HeaderText = "Tên Loại Sản Phẩm";
+            this.TenLoai.MinimumWidth = 6;
+            this.TenLoai.Name = "TenLoai";
+            // 
+            // MoTa
+            // 
+            this.MoTa.DataPropertyName = "MoTa";
+            this.MoTa.HeaderText = "Mô tả";
+            this.MoTa.MinimumWidth = 6;
+            this.MoTa.Name = "MoTa";
             // 
             // ucLoaiSanPham
             // 
@@ -320,8 +342,8 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ucLoaiSanPham";
             this.Size = new System.Drawing.Size(1383, 845);
+            this.Load += new System.EventHandler(this.ucLoaiSanPham_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -333,7 +355,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnTaoMoi;
         private System.Windows.Forms.Button btnSua;
@@ -344,13 +365,15 @@
         private System.Windows.Forms.Label lblTenLoai;
         private System.Windows.Forms.Label lblMaLoai;
         private System.Windows.Forms.TextBox txtMaLoai;
-        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnDau;
+        private System.Windows.Forms.Button btnSau;
+        private System.Windows.Forms.Button btnCuoi;
+        private System.Windows.Forms.Button btnTruoc;
         private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaLoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
     }
 }

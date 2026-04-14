@@ -57,6 +57,7 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="KetNoiCSDL.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

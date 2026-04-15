@@ -120,5 +120,10 @@ namespace QuanLyKho
         private void btnCuoi_Click(object sender, EventArgs e) { viTri = dataGridView1.Rows.Count - 2; if (viTri < 0) viTri = 0; DiChuyen(); } // Về cuối
         private void btnTruoc_Click(object sender, EventArgs e) { if (viTri > 0) { viTri--; DiChuyen(); } } // Lùi
         private void btnSau_Click(object sender, EventArgs e) { if (viTri < dataGridView1.Rows.Count - 2) { viTri++; DiChuyen(); } } // Tiến
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

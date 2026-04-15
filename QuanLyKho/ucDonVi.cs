@@ -112,5 +112,10 @@ namespace QuanLyKho
             BANGDONVI();
             HIENTHIDULIEU();
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

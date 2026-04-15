@@ -17,7 +17,7 @@ namespace QuanLyKho
 
         public void KetNoi_Dulieu()
         {
-            string str = @"Data Source=localhost\SQLEXPRESS;Initial Catalog= SQL_QLKHO;Integrated Security=True";
+            string str = @"Data Source=NHINHINHI\SQLEXPRESS;Initial Catalog= SQL_QLKHO;Integrated Security=True";
             cnn = new SqlConnection(str);
             cnn.Open();
         }

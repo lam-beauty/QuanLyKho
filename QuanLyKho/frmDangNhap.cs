@@ -74,5 +74,10 @@ namespace QuanLyKho
                 MessageBox.Show("Thong tin mat khau hoac ten dang nhap bi sai");
             }
         }
+
+        private void txtTenDangNhap_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

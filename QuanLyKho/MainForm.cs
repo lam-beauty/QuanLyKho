@@ -93,5 +93,12 @@ namespace QuanLyKho
             ucNguoiDung uc = new ucNguoiDung();
             addUserControl(uc);
         }
+
+        private void panelmain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+    
     }
 }

@@ -21,6 +21,7 @@ namespace QuanLyKho
             BANGPHIEUNHAP();
             HIENTHIDULIEU();
             HIENTHICHITIET();
+            NAP_COMBOBOX_CHITIET();
         }
 
         private void NAP_COMBOBOX()
@@ -42,7 +43,19 @@ namespace QuanLyKho
             cbTrangThai.Items.Add("Khóa");
             cbTrangThai.SelectedIndex = 0;
         }
-
+        private void NAP_COMBOBOX_CHITIET()
+        {
+            // Kiểm tra xem lưới có cột tên là "MaSanPham" không để tránh lỗi Index
+            if (dataGridView2.Columns.Contains("MaSanPham"))
+            {
+                DataGridViewComboBoxColumn colSP = (DataGridViewComboBoxColumn)dataGridView2.Columns["MaSanPham"];
+                colSP.DataSource = kn.LayBang("Select MaSanPham, TenSanPham from SanPham");
+                colSP.DisplayMember = "TenSanPham";
+                colSP.ValueMember = "MaSanPham";
+                // Liên kết với tên cột trong DataTable tạm
+                colSP.DataPropertyName = "MaSanPham";
+            }
+        }
         private void BANGPHIEUNHAP()
         {
             string sql = @"SELECT SoPhieu, NgayNhap, MaNCC, MaKho, TongTien, TenDangNhap, GhiChu, 
@@ -55,10 +68,16 @@ namespace QuanLyKho
         private void HIENTHICHITIET()
         {
             if (string.IsNullOrEmpty(txtSoPhieu.Text)) return;
-            string sql = "Select MaSanPham, SoLuong, DonGiaNhap, ThanhTien from ChiTietPhieuNhap where SoPhieu = '" + txtSoPhieu.Text + "'";
-            dataGridView2.DataSource = kn.LayBang(sql);
-        }
 
+            string sql = "Select MaSanPham, SoLuong, DonGiaNhap, (SoLuong * DonGiaNhap) as ThanhTien from ChiTietPhieuNhap where SoPhieu = '" + txtSoPhieu.Text + "'";
+            DataTable dt = kn.LayBang(sql);
+
+            // Gán dữ liệu mà không làm mất cấu trúc cột trong Designer
+            dataGridView2.DataSource = dt;
+
+            // Nếu có dữ liệu cũ thì không cho thêm dòng mới tùy tiện
+            dataGridView2.AllowUserToAddRows = false;
+        }
         private void HIENTHIDULIEU()
         {
             if (dataGridView1.DataSource == null || dataGridView1.Rows.Count == 0) return;
@@ -115,20 +134,61 @@ namespace QuanLyKho
         {
 
         }
+        private void dataGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra nếu thay đổi ở cột Số lượng (index 1) hoặc Đơn giá (index 2)
+            // Bạn thay đổi index (0, 1, 2...) cho đúng thứ tự cột của bạn
+            if (e.RowIndex >= 0 && (e.ColumnIndex == 1 || e.ColumnIndex == 2))
+            {
+                try
+                {
+                    double soLuong = Convert.ToDouble(dataGridView2.Rows[e.RowIndex].Cells[1].Value ?? 0);
+                    double donGia = Convert.ToDouble(dataGridView2.Rows[e.RowIndex].Cells[2].Value ?? 0);
 
+                    // Tính thành tiền và gán vào cột thứ 3
+                    dataGridView2.Rows[e.RowIndex].Cells[3].Value = soLuong * donGia;
+
+                    // Tính lại tổng tiền cho toàn bộ phiếu
+                    TinhTongTienPhieu();
+                }
+                catch { }
+            }
+        }
+
+        private void TinhTongTienPhieu()
+        {
+            double tong = 0;
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                tong += Convert.ToDouble(row.Cells[3].Value ?? 0);
+            }
+            txtTongTien.Text = tong.ToString();
+        }
+     
         private void btnTaoMoi_Click(object sender, EventArgs e)
         {
+            // 1. Xóa trắng các ô thông tin
             txtSoPhieu.Text = "";
-            dtpNgayNhap.Value = DateTime.Now; 
-            cbNCC.SelectedIndex = 0;     
-            cbKho.SelectedIndex = 0;       
+            dtpNgayNhap.Value = DateTime.Now;
             txtTongTien.Text = "0";
-            cbNguoiLap.SelectedIndex = 0;
             txtGhiChu.Text = "";
-            cbTrangThai.SelectedIndex = 0;
-            dataGridView2.DataSource = null;
-            txtSoPhieu.Focus();
 
+            // 2. Tạo bảng tạm khớp với Tên cột (DataPropertyName) trong Designer
+            DataTable dtEmpty = new DataTable();
+            dtEmpty.Columns.Add("MaSanPham");
+            dtEmpty.Columns.Add("SoLuong", typeof(int));
+            dtEmpty.Columns.Add("DonGiaNhap", typeof(int));
+            dtEmpty.Columns.Add("ThanhTien", typeof(int));
+
+            // 3. Quan trọng: Thiết lập lại lưới để chấp nhận nhập liệu
+            dataGridView2.DataSource = dtEmpty;
+            dataGridView2.AllowUserToAddRows = true;
+
+            // 4. Khóa cột thành tiền vì nó sẽ tự tính
+            if (dataGridView2.Columns.Contains("ThanhTien"))
+                dataGridView2.Columns["ThanhTien"].ReadOnly = true;
+
+            txtSoPhieu.Focus();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -174,20 +234,43 @@ namespace QuanLyKho
 
         private void btnLuu_Click_1(object sender, EventArgs e)
         {
-            int trangThai = (cbTrangThai.SelectedIndex == 0) ? 1 : 0;
-            string sql_luu = string.Format(
-                "Insert into PhieuNhap(SoPhieu, NgayNhap, MaNCC, MaKho, TongTien, TenDangNhap, GhiChu, TrangThai) " +
-                "values('{0}', '{1}', '{2}', '{3}', 0, '{4}', N'{5}', {6})",
-                txtSoPhieu.Text, dtpNgayNhap.Value.ToString("yyyy-MM-dd"),
-                cbNCC.SelectedValue, cbKho.SelectedValue, cbNguoiLap.SelectedValue,
-                txtGhiChu.Text, trangThai);
+            try
+            {
+                // 1. Lưu thông tin chung vào bảng PhieuNhap
+                int trangThai = (cbTrangThai.SelectedIndex == 0) ? 1 : 0;
+                string sql_phieu = string.Format(
+                    "Insert into PhieuNhap(SoPhieu, NgayNhap, MaNCC, MaKho, TongTien, TenDangNhap, GhiChu, TrangThai) " +
+                    "values('{0}', '{1}', '{2}', '{3}', {4}, '{5}', N'{6}', {7})",
+                    txtSoPhieu.Text, dtpNgayNhap.Value.ToString("yyyy-MM-dd"),
+                    cbNCC.SelectedValue, cbKho.SelectedValue, txtTongTien.Text, cbNguoiLap.SelectedValue,
+                    txtGhiChu.Text, trangThai);
 
-            kn.ThucThi(sql_luu);
-            BANGPHIEUNHAP();
-            HIENTHIDULIEU();
-            HIENTHICHITIET();
-            MessageBox.Show("Lưu phiếu nhập thành công!");
+                kn.ThucThi(sql_phieu);
 
+                // 2. Lưu từng dòng chi tiết từ DataGridView2 vào bảng ChiTietPhieuNhap
+                foreach (DataGridViewRow row in dataGridView2.Rows)
+                {
+                    if (row.IsNewRow) continue; // Bỏ qua dòng trống cuối cùng của lưới
+
+                    string maSP = row.Cells[0].Value.ToString();
+                    int soLuong = Convert.ToInt32(row.Cells[1].Value);
+                    int donGia = Convert.ToInt32(row.Cells[2].Value);
+
+                    string sql_chitiet = string.Format(
+                        "Insert into ChiTietPhieuNhap(SoPhieu, MaSanPham, SoLuong, DonGiaNhap) " +
+                        "values('{0}', '{1}', {2}, {3})",
+                        txtSoPhieu.Text, maSP, soLuong, donGia);
+
+                    kn.ThucThi(sql_chitiet);
+                }
+
+                MessageBox.Show("Lưu phiếu nhập và chi tiết thành công!");
+                BANGPHIEUNHAP();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu: " + ex.Message);
+            }
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -239,6 +322,11 @@ namespace QuanLyKho
         {
             frmChiTietPhieuNhap frm = new frmChiTietPhieuNhap();
             frm.Show();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

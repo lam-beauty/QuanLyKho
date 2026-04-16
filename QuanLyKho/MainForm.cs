@@ -99,6 +99,10 @@ namespace QuanLyKho
 
         }
 
-    
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            ucBaoCao uc = new ucBaoCao();
+            addUserControl(uc);
+        }
     }
 }
